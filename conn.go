@@ -872,9 +872,11 @@ func (c *Conn) advanceFrame() (int, error) {
 
 	// 4. Handle frame masking.
 
-	if mask != c.isServer {
-		return noFrame, c.handleProtocolError("incorrect mask flag")
-	}
+	// SNAP-AV REMOVED
+	//if mask != c.isServer {
+	//	return noFrame, c.handleProtocolError("incorrect mask flag")
+	//}
+	// END OF SNAP-AV REMOVED
 
 	if mask {
 		c.readMaskPos = 0
